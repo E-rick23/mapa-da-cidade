@@ -278,7 +278,10 @@ function draw() {
     background(100);
     textSize(20);
     fill(255);
-  text("Casa", 100, 100)
+  text("Casa (pressione b para voltar)", 100, 100)
+    if (key == "b") {
+      tela = 2;
+    }
     
   } else if (tela == 6) {
     background(100);
@@ -313,12 +316,18 @@ function draw() {
     background(100);
     textSize(20);
     fill(255);
-  text("Igreja", 100, 100)
+  text("Igreja (pressione b para voltar)", 100, 100)
+    if (key == "b") {
+      tela = 2;
+    }
     
   } else if (tela == 8) {
     background(100);
     textSize(20);
     fill(255);
-  text("Mercado", 100, 100)
+  text("Mercado (pressione b para voltar)", 100, 100)
+    if (key == "b") {
+      tela = 2;
+    }
   }
 }
