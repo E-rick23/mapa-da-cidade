@@ -146,10 +146,10 @@ function draw() {
     background(220);
     textSize(32);
     text("Bem vindo!", 220, 100);
-    text("Pressione Enter ou clique para iniciar!", 30, 200);
+    text("Pressione Enter para iniciar!", 90, 200);
     text("Ou, pressione C para créditos!", 80, 350);
     
-    if (key == "Enter" || mouseIsPressed) {
+    if (key == "Enter") {
       tela = 3;
     }
      if (key == "c") {
@@ -337,7 +337,7 @@ function draw() {
     //Tela de créditos
     background(220);
     textSize(32);
-    text("Créditos!", 100, 100);
+    text("Você ganhou!", 100, 100);
     if (key == "b") {
       tela = 1;
     }
@@ -353,24 +353,24 @@ function draw() {
     rect(60, (150-70), 200, 50, 80);
    
     fill(255);    
-    text("Casa", 90, (180-70));
+    text("Laboratório", 110, (180-70));
     
     fill(0, 102, 153);
     rect(360, (150-70), 200, 50, 80);
     
     fill(255);
-    text("Laboratório", 380, (180-70));
+    text("Casa", 430, (180-70));
     
     
   
-        if (mouseX > 60 && mouseX < 60+200 && mouseY > (150-70) && mouseY < (150-70)+50 && mouseIsPressed) {
+        if (mouseX > 360 && mouseX < 360+200 && mouseY > (150-70) && mouseY < (150-70)+50 && mouseIsPressed) {
       c1 = true;
       casas1 = true;
       
     }
     
     if (casas1 == true) {
-      image(emoji, 270, (150-70), 60, 50);
+      image(emoji, 500, (150-70), 60, 50);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
