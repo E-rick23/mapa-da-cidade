@@ -64,8 +64,20 @@ var r4y = 275;
 var gato; //Variável da imagem
 
 //Variáveis do spawn
+var mgx = 200;
+var mgy = 200;
+
+var egx = 400;
+var egy = 100;
+
+var cgx = 200;
+var cgy = 100;
+
+var igx = 400;
+var igy = 200;
+
 var gx = 200;
-var gy = 200;
+var gy = 100;
 
 var m = 2; //Velocidade do gato
 
@@ -134,8 +146,8 @@ function preload() {
 
 function setup() {
   createCanvas(larg, alt);
-  //music.loop();
-  //music.setVolume(0.3);
+  music.loop();
+  music.setVolume(0.3);
 }
 
 
@@ -247,19 +259,6 @@ function draw() {
       
     }
     
-    if (key == "c") {
-      fill(0);
-      text("Essa é sua casa!", 25, 25);
-    }
-  
-    if (key == "i") {
-      fill(0);
-      text("Essa é a igreja.", 425, 270);
-    }
-    if (key == "m") {
-      fill(0);
-      text("Esse é o supermercado.", 25, 270);
-    }
     
    fill(0,100,200); //Cor do mouse
   ellipse(mouseX, mouseY, 30,30)
@@ -402,6 +401,8 @@ function draw() {
     text("Clique aqui para continuar!",200, 370); 
     }
     if (casas1 == true && casas2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+      gx = cgx
+      gy = cgy
       tela = 2;
     }
 
@@ -466,6 +467,8 @@ function draw() {
     text("Clique aqui para continuar!",200, 370); 
     }
     if (escola1 == true && escola2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+      gx = egx
+      gy = egy
       tela = 2;
     }
      
@@ -532,6 +535,8 @@ function draw() {
     text("Clique aqui para continuar!",200, 370); 
     }
     if (igreja1 == true && igreja2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+      gx = igx
+      gy = igy
       tela = 2;
     }
     
@@ -595,6 +600,9 @@ function draw() {
     text("Clique aqui para continuar!",200, 370); 
     }
     if (sup1 == true && sup2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+      gx = mgx;
+      gy = mgy;
+      
       tela = 2;
     }
   }
