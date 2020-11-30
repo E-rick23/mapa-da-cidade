@@ -55,13 +55,24 @@ var r3y = 278;
 
 var r4y = 275;
 
-    
+//Textos de interação com o local!
+var t1 = false;
+
+var t2 = false;
+
+var t3 = false;
+
+var t4 = false;
 
 
 
 
 //Variáveis do jogador
 var gato; //Variável da imagem
+
+var gp1; //Animação de vitória
+var gp2;
+var c = 0;
 
 //Variáveis do spawn
 var mgx = 200;
@@ -138,6 +149,8 @@ function preload() {
   choco = loadImage("assets/chocolate.png");
   aviao = loadImage("assets/avião.png");
   emoji = loadImage("assets/emoji.png");
+  gp1 = loadImage("assets/pg1.png");
+  gp2 = loadImage("assets/pg2.png");
   soundFormats('mp3', 'ogg');
   music = loadSound("assets/musica.mp3");
   
@@ -171,6 +184,7 @@ function draw() {
     
   } else if (tela == 2) {
     //Tela do jogo 1
+    frameRate(60)
     background(220);
     textSize(20);
       
@@ -239,8 +253,55 @@ function draw() {
     if (mouseX > r1x && mouseX < r1x+r1w && mouseY > r3y && mouseY < r3y +r1h && mouseIsPressed) {
        tela = 8;
      }
-       
-       
+    
+    //Texto de interação com a casa!
+    if (gx > r1x + 20 && gx < r1x+r1w + 20 && gy > r1y + 20 && gy < r1y + r1h + 20) {
+       t1 = true;
+     } else {
+       t1 = false;
+     }
+    if (t1 == true && c1 == false && c2 == false){
+      textStyle(BOLD)
+       fill(0);
+      text("Clique aqui!", 30, 20);
+    }
+    
+    //Texto de interação com a escola!
+    if (gx > r2x - 10 && gx < r2x+r2w - 10 && gy > r2y + 10 && gy < r2y +r1h + 10) {
+       t2 = true;
+     } else {
+       t2 = false;
+     }
+    if (t2 == true && e1 == false && e2 == false){
+      textStyle(BOLD)
+       fill(0);
+      text("Clique aqui!", 420, 20);
+    }
+    
+    //Texto de interação com a Igreja!
+    if (gx > r2x-80 && gx < r2x+r2w-80 && gy > r3y-80 && gy < r3y +r1h-80) {
+       t3 = true;
+    } else {
+      t3 = false;
+    }
+    if (t3 == true && i1 == false && i2 == false){
+      textStyle(BOLD)
+       fill(0);
+      text("Clique aqui!", 380, 300);
+    }
+    
+    //Interação com o mercado
+    
+    if (gx > r1x + 20 && gx < r1x+r1w + 20 && gy > r3y -80 && gy < r3y +r1h - 80) {
+       t4 = true;
+     } else {
+       t4 = false;
+     }
+     if (t4 == true && m1 == false && m2 == false){
+      textStyle(BOLD)
+       fill(0);
+      text("Clique aqui!", 40, 305);
+    }
     //Movimento do personagem
     if (keyIsDown(LEFT_ARROW)){
       gx = gx - m;
@@ -262,21 +323,22 @@ function draw() {
     
    fill(0,100,200); //Cor do mouse
   ellipse(mouseX, mouseY, 30,30)
+    textSize(16);
     
     if (e1 == true && e2 == true) {
         textStyle(BOLD)
        fill(0);
-      text("Escola", 460, 80);
+      text("Escola", 465, 78);
     }
     if(i1 == true && i2 == true) {
       textStyle(BOLD)
        fill(0);
-      text("Igreja", 470, 340);
+      text("Igreja", 475, 340);
     }
     if (m1 == true && m2 == true){
        textStyle(BOLD)
        fill(0);
-      text("Supermercado", 30, 305);
+      text("Supermercado", 40, 305);
     }
     if(c1 == true && c2 == true){
       textStyle(BOLD)
@@ -333,10 +395,19 @@ function draw() {
   }
     
   } else if (tela == 4) {
-    //Tela de créditos
+    //Tela de vitória
+    frameRate(1.5);
     background(220);
     textSize(32);
-    text("Você ganhou!", 100, 100);
+    text("Você ganhou!", 200, 100);
+ 
+    if (c === 0){
+      image(gp1, 240, 200, (175/1.5), (262/1.5));
+      c++
+    } else {
+      image (gp2, 190, 150, (350/1.5), (262/1.5));
+      c = 0;
+    }
     if (key == "b") {
       tela = 1;
     }
@@ -396,11 +467,11 @@ function draw() {
     if (c1 == true && c2 == true){
       
     fill(0, 102, 153);
-    rect(170, 340, 300, 50, 80)
+    rect(250, 340, 120, 50, 80)
     fill(255);
-    text("Clique aqui para continuar!",200, 370); 
+    text("Continuar!",262, 370); 
     }
-    if (casas1 == true && casas2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+    if (casas1 == true && casas2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
       gx = cgx
       gy = cgy
       tela = 2;
@@ -462,11 +533,13 @@ function draw() {
     if (e1 == true && e2 == true){
       
     fill(0, 102, 153);
-    rect(170, 340, 300, 50, 80)
+    rect(250, 340, 120, 50, 80)
     fill(255);
-    text("Clique aqui para continuar!",200, 370); 
+    text("Continuar!",262, 370); 
+      
     }
-    if (escola1 == true && escola2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+    
+    if (escola1 == true && escola2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
       gx = egx
       gy = egy
       tela = 2;
@@ -495,8 +568,7 @@ function draw() {
     text("Igreja",430, (180-70));
     
     
-  
-        if (mouseX > 360 && mouseX < 360+200 && mouseY > (150-70) && mouseY < (150-70)+50 && mouseIsPressed) {
+    if (mouseX > 360 && mouseX < 360+200 && mouseY > (150-70) && mouseY < (150-70)+50 && mouseIsPressed) {
       i1 = true;
       igreja1 = true;
       
@@ -530,11 +602,11 @@ function draw() {
     if (i1 == true && i2 == true){
       
     fill(0, 102, 153);
-    rect(170, 340, 300, 50, 80)
+    rect(250, 340, 120, 50, 80)
     fill(255);
-    text("Clique aqui para continuar!",200, 370); 
+    text("Continuar!",262, 370);  
     }
-    if (igreja1 == true && igreja2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+    if (i1 == true && i2 == true && (mouseX > 250) && (mouseX < 250+120) && (mouseY > 340) && (mouseY < 340+50) && mouseIsPressed) {
       gx = igx
       gy = igy
       tela = 2;
@@ -595,11 +667,11 @@ function draw() {
     if (m1 == true && m2 == true){
       
     fill(0, 102, 153);
-    rect(170, 340, 300, 50, 80)
+    rect(250, 340, 120, 50, 80)
     fill(255);
-    text("Clique aqui para continuar!",200, 370); 
+    text("Continuar!",262, 370); 
     }
-    if (sup1 == true && sup2 == true && mouseX > 170 && mouseX < 170+300 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
+    if (sup1 == true && sup2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
       gx = mgx;
       gy = mgy;
       
