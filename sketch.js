@@ -68,9 +68,13 @@ var t4 = false;
 
 
 //Variáveis do jogador
-var gato; //Variável da imagem
+var gato; //Variável de teste
+var gatoanimado = [];
+var gc = 0;
+var gatoandadevagar = 0;
 
-var gp1; //Animação de vitória
+//Animação de vitória
+var gp1; 
 var gp2;
 var c = 0;
 
@@ -93,8 +97,8 @@ var gy = 100;
 var m = 2; //Velocidade do gato
 
 //Tamanho do gato
-var gl = 40;
-var ga = 60;
+var gl = 60;
+var ga = 80;
 
 //Variaveis das casas 
 
@@ -135,11 +139,16 @@ var c2 = false;
 
 function preload() {
   
+  for (g = 0; g < 3; g++){
+    gatoanimado[g] = loadImage("assets/gato/gator" + g + ".png");
+    console.log("assets/Gato/Gator" + g + ".png")
+  }
+  
   casa1 = loadImage("assets/casa1.png");
   casa2 = loadImage("assets/casa2.png");
   predio = loadImage("assets/predio.png");
   mapa = loadImage("assets/mapa.png");
-  gato = loadImage("assets/gb.png");
+  gato = loadImage("assets/Gato/Gator1.png");
   mala = loadImage("assets/mala.png");
   cama = loadImage("assets/cama.png");
   livros = loadImage("assets/livros.png");
@@ -149,8 +158,8 @@ function preload() {
   choco = loadImage("assets/chocolate.png");
   aviao = loadImage("assets/avião.png");
   emoji = loadImage("assets/emoji.png");
-  gp1 = loadImage("assets/pg1.png");
-  gp2 = loadImage("assets/pg2.png");
+  gp1 = loadImage("assets/gato/pg1.png");
+  gp2 = loadImage("assets/gato/pg2.png");
   soundFormats('mp3', 'ogg');
   music = loadSound("assets/musica.mp3");
   
@@ -184,7 +193,7 @@ function draw() {
     
   } else if (tela == 2) {
     //Tela do jogo 1
-    frameRate(60)
+    
     background(220);
     textSize(20);
       
@@ -211,8 +220,15 @@ function draw() {
     
     
     
-    image(gato, gx, gy, gl, ga); //Personagem
-    
+    image(gatoanimado[gc], gx, gy, gl, ga); //Personagem
+    gatoandadevagar++;
+    if (gatoandadevagar >= 7){
+      gatoandadevagar = 0;
+      gc++;
+    if (gc >= 3) {
+      gc = 0;
+    }
+    }
     //Agora vamos impedir que o gato saia do mapa!
     
     if (gx < 0) {
@@ -677,5 +693,12 @@ function draw() {
       
       tela = 2;
     }
+  } else if (tela == 8) {
+  
+   background(100);
+    textSize(20);
+    
+    fill(0);
+    text("Créditos!", 230, (100-70));
   }
 }
