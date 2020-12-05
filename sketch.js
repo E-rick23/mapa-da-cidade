@@ -140,15 +140,15 @@ var c2 = false;
 function preload() {
   
   for (g = 0; g < 3; g++){
-    gatoanimado[g] = loadImage("assets/gato/gator" + g + ".png");
-    console.log("assets/Gato/Gator" + g + ".png")
+    gatoanimado[g] = loadImage("assets/gato/ator" + g + ".png");
+    console.log("assets/Gato/ator" + g + ".png")
   }
   
   casa1 = loadImage("assets/casa1.png");
   casa2 = loadImage("assets/casa2.png");
   predio = loadImage("assets/predio.png");
   mapa = loadImage("assets/mapa.png");
-  gato = loadImage("assets/Gato/Gator1.png");
+  gato = loadImage("assets/gato/ator1.png");
   mala = loadImage("assets/mala.png");
   cama = loadImage("assets/cama.png");
   livros = loadImage("assets/livros.png");
