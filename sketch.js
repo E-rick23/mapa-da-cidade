@@ -11,6 +11,8 @@ var alt = 400;
 
 //variáveis relacionadas ao som
 let music;
+let vitoria;
+
 
 //variáveis dos objetos
 var casa1;
@@ -176,7 +178,8 @@ function preload() {
   gp1 = loadImage("assets/gato/pg1.png");
   gp2 = loadImage("assets/gato/pg2.png");
   soundFormats('mp3', 'ogg');
-  music = loadSound("assets/musica.mp3");
+  music = loadSound("assets/sound/musica.mp3");
+  vitoria = loadSound("assets/sound/Victory.mp3")
   
   
 }
@@ -463,6 +466,10 @@ function draw() {
     }
     
     if(e1 == true && e2 == true && i1 == true && i2 == true && m1 == true && m2 == true && c1 == true && c2 == true ){
+      music.stop();
+    
+    vitoria.play();
+    vitoria.playMode("restart");
       tela = 4;
       win = true;
     }
@@ -513,6 +520,9 @@ function draw() {
     
   } else if (tela == 4) {
     //Tela de vitória
+    
+    
+    
     frameRate(1.5);
     background(220);
     textSize(32);
