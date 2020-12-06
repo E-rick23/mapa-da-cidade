@@ -172,7 +172,7 @@ function preload() {
   vela = loadImage("assets/vela.png");
   choco = loadImage("assets/chocolate.png");
   aviao = loadImage("assets/avião.png");
-  emoji = loadImage("assets/emoji.png");
+  emoji = loadImage("assets/gato/emoji.png");
   gp1 = loadImage("assets/gato/pg1.png");
   gp2 = loadImage("assets/gato/pg2.png");
   soundFormats('mp3', 'ogg');
@@ -558,7 +558,7 @@ function draw() {
     }
     
     if (casas1 == true) {
-      image(emoji, 500, (150-70), 60, 50);
+      image(emoji, 500, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -578,7 +578,7 @@ function draw() {
       casas2 = true;
     }
     if (casas2 == true) {
-      image(emoji, 360, 240, 60, 50);
+      image(emoji, 360, 240, 80, 70);
     }
     
     
@@ -624,7 +624,7 @@ function draw() {
     }
     
     if (escola1 == true) {
-      image(emoji, 270, (150-70), 60, 50);
+      image(emoji, 270, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -644,7 +644,7 @@ function draw() {
       escola2 = true;
     }
     if (escola2 == true) {
-      image(emoji, 350, 250, 60, 50);
+      image(emoji, 350, 250, 80, 70);
     }
     
     
@@ -694,7 +694,7 @@ function draw() {
     }
     
     if (igreja1 == true) {
-      image(emoji, 500, (150-70), 60, 50);
+      image(emoji, 500, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -714,7 +714,7 @@ function draw() {
       igreja2 = true;
     }
     if (igreja2 == true) {
-      image(emoji, 200, 250, 60, 50);
+      image(emoji, 200, 250, 80, 70);
     }
     
     
@@ -759,7 +759,7 @@ function draw() {
     }
     
     if (sup1 == true) {
-      image(emoji, 270, (150-70), 60, 50);
+      image(emoji, 270, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -779,7 +779,7 @@ function draw() {
       sup2 = true;
     }
     if (sup2 == true) {
-      image(emoji, 500, 240, 60, 50);
+      image(emoji, 500, 240, 80, 70);
     }
     
     
@@ -855,11 +855,11 @@ function draw() {
     image(gato, 50, 180, gl, ga);
     text("Clique!", 150, 200);
     
-    text("Após isso, uma tela com perguntas irá aparecer.", 30, 280)
-    text("Responda corretamente e um gatinho feliz irá aparecer!", 30, 310);
-    image(emoji, 530, 280, 60, 50)
-    text("Responda tudo corretamente para vencer!", 30, 340);
-    text("Clique com o mouse para continuar!", 30, 380);
+    text("Após isso, uma tela com perguntas irá aparecer.", 10, 280)
+    text("Responda corretamente e o Edward feliz irá aparecer!", 10, 310);
+    image(emoji, 510, 280, 80, 70)
+    text("Responda tudo corretamente para vencer!", 10, 340);
+    text("Clique com o mouse para continuar!", 10, 380);
     image(pata,mouseX, mouseY, 60,60)
     if (mouseIsPressed) {
       tela = 1;
