@@ -2,6 +2,7 @@
 
 
 var tela = 1;
+var win = false; //variável de vitória!
 
 //variáveis do tamanho do canvas
 
@@ -25,6 +26,8 @@ var vela;
 var choco;
 var emoji;
 var aviao;
+var teclas;
+var pata;
 
 //Variáveis dos emojis de seleção correta
 
@@ -68,10 +71,17 @@ var t4 = false;
 
 
 //Variáveis do jogador
-var gato; //Variável de teste
+var gato;
 var gatoanimado = [];
+var gatoanimadoe = [];
 var gc = 0;
+var gcl = 0;
 var gatoandadevagar = 0;
+var gatoparado = true;
+var gatoup = false;
+var gatodown = false;
+var gatoleft = false;
+var gatoright = false;
 
 //Animação de vitória
 var gp1; 
@@ -92,6 +102,7 @@ var igx = 400;
 var igy = 200;
 
 var gx = 200;
+
 var gy = 100;
 
 var m = 2; //Velocidade do gato
@@ -143,7 +154,11 @@ function preload() {
     gatoanimado[g] = loadImage("assets/gato/ator" + g + ".png");
     console.log("assets/Gato/ator" + g + ".png")
   }
-  
+  for (gll = 0; gll < 3; gll++){
+    gatoanimadoe[gll] = loadImage("assets/gato/atorl" + gll + ".png");
+  }
+  pata = loadImage("assets/pata.png");
+  teclas = loadImage("assets/teclas.png")
   casa1 = loadImage("assets/casa1.png");
   casa2 = loadImage("assets/casa2.png");
   predio = loadImage("assets/predio.png");
@@ -176,23 +191,27 @@ function setup() {
 function draw() {
   
   if (tela == 1) {
-    //Tela inicial   
+    //Tela inicial 
+    frameRate(60)
     background(220);
     textSize(32);
     text("Bem vindo!", 220, 100);
     text("Pressione Enter para iniciar!", 90, 200);
+    text("Pressione I para instruções!", 90, 270)
     text("Ou, pressione C para créditos!", 80, 350);
     
     if (key == "Enter") {
       tela = 3;
     }
      if (key == "c") {
-      tela = 4;
+      tela = 9;
+    }
+    if (key == "i"){
+      tela = 10;
     }
     
     
   } else if (tela == 2) {
-    //Tela do jogo 1
     
     background(220);
     textSize(20);
@@ -218,9 +237,61 @@ function draw() {
       s2 = false;
     }
     
+    //Movimento do personagem
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)){
+      gatoparado = false
+      gatoleft = true;
+      gatoup = false;
+      gatodown = false;
+      gatoright = false;
+      gx = gx - m;
+      
+    } else {
+      gatoleft = false;
+    }
+    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){
+      gatoparado = false;
+      gatoright = true;
+      gatoleft = false;
+      gatoup = false;
+      gatodown = false;
+      gx = gx + m;
+      
+    } else {
+      gatoright = false;
+    }
+    if (keyIsDown(UP_ARROW) || keyIsDown(87)){
+      gatoparado = false;
+      gatoup = true;
+      gatoright = false;
+      gatoleft = false;
+      gatodown = false;
+      gy = gy - m;
+      
+    } else {
+      gatoup = false;
+    }
+    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)){
+      gatoparado = false;
+      gatodown = true;
+      gatoright = false;
+      gatoleft = false;
+      gatoup = false;
+      gy = gy + m;
+      
+    } else {
+      gatodown = false;
+    }
     
     
-    image(gatoanimado[gc], gx, gy, gl, ga); //Personagem
+    if (gatoparado == true){
+     image(gatoanimado[gc], gx, gy, gl, ga); //Personagem
+    }
+    
+    if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)){
+
+      if (gatoright == true){
+      image(gatoanimado[gc], gx, gy, gl, ga)
     gatoandadevagar++;
     if (gatoandadevagar >= 7){
       gatoandadevagar = 0;
@@ -229,6 +300,54 @@ function draw() {
       gc = 0;
     }
     }
+    } 
+    }
+    if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
+      
+      if (gatoleft == true) {
+      image(gatoanimadoe[gcl], gx, gy, gl, ga);
+      gatoandadevagar++;
+    if (gatoandadevagar >= 7){
+      gatoandadevagar = 0;
+      gcl++;
+    if (gcl >= 3) {
+      gcl = 0;
+    }
+    }
+    } 
+    }
+    if (keyIsDown(UP_ARROW) || keyIsDown(87)){
+      
+      if (gatoup == true){
+      image(gatoanimado[gc], gx, gy, gl, ga)
+    gatoandadevagar++;
+    if (gatoandadevagar >= 7){
+      gatoandadevagar = 0;
+      gc++;
+    if (gc >= 3) {
+      gc = 0;
+    }
+    }
+    }
+    }
+    if (keyIsDown(DOWN_ARROW) || keyIsDown(83)){
+     
+      if (gatodown == true){
+      image(gatoanimado[gc], gx, gy, gl, ga)
+    gatoandadevagar++;
+    if (gatoandadevagar >= 7){
+      gatoandadevagar = 0;
+      gc++;
+    if (gc >= 3) {
+      gc = 0;
+    }
+    }
+    } 
+    }
+    if (gatoup == false && gatodown == false && gatoleft == false || gatoright == false){
+      gatoparado = true;
+    }
+    
     //Agora vamos impedir que o gato saia do mapa!
     
     if (gx < 0) {
@@ -318,27 +437,8 @@ function draw() {
        fill(0);
       text("Clique aqui!", 40, 305);
     }
-    //Movimento do personagem
-    if (keyIsDown(LEFT_ARROW)){
-      gx = gx - m;
-      
-    }
-    if (keyIsDown(RIGHT_ARROW)){
-      gx = gx + m;
-      
-    }
-    if (keyIsDown(UP_ARROW)){
-      gy = gy - m;
-      
-    }
-    if (keyIsDown(DOWN_ARROW)){
-      gy = gy + m;
-      
-    }
     
-    
-   fill(0,100,200); //Cor do mouse
-  ellipse(mouseX, mouseY, 30,30)
+  image(pata,mouseX, mouseY, 60,60)
     textSize(16);
     
     if (e1 == true && e2 == true) {
@@ -364,6 +464,7 @@ function draw() {
     
     if(e1 == true && e2 == true && i1 == true && i2 == true && m1 == true && m2 == true && c1 == true && c2 == true ){
       tela = 4;
+      win = true;
     }
     
   } else if (tela == 3) {
@@ -380,8 +481,8 @@ function draw() {
     image(casa2, 225, 200, 150, 100);
     image(predio, 400, 200, 150, 100);
   //mouse  
-  fill(0,100,200); //Cor do mouse
-  ellipse(mouseX, mouseY, 30,30)
+  
+  image(pata,mouseX, mouseY, 60,60)
     
     //Seleção da casa pequena
     if (mouseX > 50 && mouseX < 50+150 && mouseY > 200 && mouseY < 200 +100 && mouseIsPressed) {
@@ -424,8 +525,9 @@ function draw() {
       image (gp2, 190, 150, (350/1.5), (262/1.5));
       c = 0;
     }
-    if (key == "b") {
-      tela = 1;
+    text("Pressione C para continuar!", 100, 390);
+    if (key == "c" || key == "C") {
+      tela = 9;
     }
     
   } else if (tela == 5) {
@@ -470,7 +572,7 @@ function draw() {
     image(aviao, 420, 210, 80, 100);
     
     fill(0);
-    
+    image(pata,mouseX, mouseY, 60,60)
     if (mouseX > 250 && mouseX < 250+80 && mouseY > 210 && mouseY < 210+100 && mouseIsPressed) {
       c2 = true;
       casas2 = true;
@@ -561,10 +663,11 @@ function draw() {
       tela = 2;
     }
      
-  fill(0,100,200); //Cor do mouse
-  ellipse(mouseX, mouseY, 30,30)
+  
+  image(pata,mouseX, mouseY, 60,60)
     
   } else if (tela == 7) {
+    
    background(100);
     textSize(20);
     
@@ -605,7 +708,7 @@ function draw() {
     image(chuveiro, 420, 210, 80, 100);
     
     fill(0);
-    
+    image(pata,mouseX, mouseY, 60,60)
     if (mouseX > 90 && mouseX < 90+100 && mouseY > 210 && mouseY < 210+100 && mouseIsPressed) {
       i2 = true;
       igreja2 = true;
@@ -670,7 +773,7 @@ function draw() {
     image(choco, 420, 210, 80, 100);
     
     fill(0);
-    
+    image(pata,mouseX, mouseY, 60,60)
     if (mouseX > 420 && mouseX < 420+80 && mouseY > 210 && mouseY < 210+100 && mouseIsPressed) {
       m2 = true;
       sup2 = true;
@@ -693,12 +796,73 @@ function draw() {
       
       tela = 2;
     }
-  } else if (tela == 8) {
-  
+  } else if (tela == 9) {
+  frameRate(1.5)
    background(100);
     textSize(20);
     
     fill(0);
-    text("Créditos!", 230, (100-70));
+    text("Créditos", 250, (100-70));
+    text("Programador:", 230, (100-40));
+    text("Erick Marques Oliveira Azevedo", 160, 90)
+    if (win == true){
+    if (c === 0){
+      image(gp1, 30, 230, (175/1.5), (262/1.5));
+      c++
+    } else {
+      image (gp2, -20, 170, (350/1.5), (262/1.5));
+      c = 0;
+    }
+  }
+    text("Agradecimentos especiais:", 180, 240);
+    text("Elli Pedro (Testador)", 210, 270);
+    text("Elton Marques (Testador)", 190, 300);
+    text("Javier Aranda (Testador)", 200, 330);
+    text("Janmille Roberta (Educadora)", 170, 360);
+    text("Orivaldo Vieira (Professor)", 190, 390);
+    if (win == false) {
+      textSize(10)
+      text("(Pressione b para voltar)", 10, 380)
+    }
+    if (key == "b") {
+      tela = 1;
+    }
+  } else if (tela == 10){
+    background(255,236,192);
+    textSize(20);
+    
+    fill(0);
+    text("Edward é um gatinho animado e energético, esse é ele:", 20, 30)
+    image(gato,520,10,60,80)
+    text("Para mover o Edward, use as setas do seu teclado!", 40, 80);
+    image(teclas, 50, 10, 400, 400);
+    text("Aperte a seta esquerda, ou D para continuar!", 40, 380)
+    image(pata,mouseX, mouseY, 60,60)
+    if (key == "d" || key == RIGHT_ARROW){
+      tela = 11
+    }
+  } else if (tela == 11){
+    background(255,236,192);
+    textSize(20);
+    
+    fill(0);
+    
+    text('Esse é o mouse: ', 60, 40);
+    image(pata, 220, 10, 60, 60);
+    text('Quando você chegar perto de uma estrutura clique nela! ',30, 90);
+    image(casa1, 30, 100, 150, 100);
+    image(pata, 100, 160, 60, 60);
+    image(gato, 50, 180, gl, ga);
+    text("Clique!", 150, 200);
+    
+    text("Após isso, uma tela com perguntas irá aparecer.", 30, 280)
+    text("Responda corretamente e um gatinho feliz irá aparecer!", 30, 310);
+    image(emoji, 530, 280, 60, 50)
+    text("Responda tudo corretamente para vencer!", 30, 340);
+    text("Clique com o mouse para continuar!", 30, 380);
+    image(pata,mouseX, mouseY, 60,60)
+    if (mouseIsPressed) {
+      tela = 1;
+    }
   }
 }
