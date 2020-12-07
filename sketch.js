@@ -535,8 +535,8 @@ function draw() {
       image (gp2, 190, 150, (350/1.5), (262/1.5));
       c = 0;
     }
-    text("Pressione C para continuar!", 100, 390);
-    if (key == "c" || key == "C") {
+    text("Pressione Enter para continuar!", 70, 390);
+    if (key == "Enter") {
       tela = 9;
     }
     
