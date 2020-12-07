@@ -188,6 +188,7 @@ function setup() {
   createCanvas(larg, alt);
   music.loop();
   music.setVolume(0.3);
+  noCursor();
 }
 
 
@@ -582,7 +583,7 @@ function draw() {
     image(aviao, 420, 210, 80, 100);
     
     fill(0);
-    image(pata,mouseX, mouseY, 60,60)
+    
     if (mouseX > 250 && mouseX < 250+80 && mouseY > 210 && mouseY < 210+100 && mouseIsPressed) {
       c2 = true;
       casas2 = true;
@@ -599,6 +600,7 @@ function draw() {
     fill(255);
     text("Continuar!",262, 370); 
     }
+     image(pata,mouseX, mouseY, 60,60)
     if (casas1 == true && casas2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
       gx = cgx
       gy = cgy
@@ -666,7 +668,7 @@ function draw() {
     text("Continuar!",262, 370); 
       
     }
-    
+     
     if (escola1 == true && escola2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
       gx = egx
       gy = egy
@@ -718,7 +720,7 @@ function draw() {
     image(chuveiro, 420, 210, 80, 100);
     
     fill(0);
-    image(pata,mouseX, mouseY, 60,60)
+    
     if (mouseX > 90 && mouseX < 90+100 && mouseY > 210 && mouseY < 210+100 && mouseIsPressed) {
       i2 = true;
       igreja2 = true;
@@ -735,6 +737,7 @@ function draw() {
     fill(255);
     text("Continuar!",262, 370);  
     }
+     image(pata,mouseX, mouseY, 60,60)
     if (i1 == true && i2 == true && (mouseX > 250) && (mouseX < 250+120) && (mouseY > 340) && (mouseY < 340+50) && mouseIsPressed) {
       gx = igx
       gy = igy
@@ -783,7 +786,7 @@ function draw() {
     image(choco, 420, 210, 80, 100);
     
     fill(0);
-    image(pata,mouseX, mouseY, 60,60)
+    
     if (mouseX > 420 && mouseX < 420+80 && mouseY > 210 && mouseY < 210+100 && mouseIsPressed) {
       m2 = true;
       sup2 = true;
@@ -800,6 +803,7 @@ function draw() {
     fill(255);
     text("Continuar!",262, 370); 
     }
+     image(pata,mouseX, mouseY, 60,60)
     if (sup1 == true && sup2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
       gx = mgx;
       gy = mgy;
