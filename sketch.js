@@ -30,6 +30,7 @@ var emoji;
 var aviao;
 var teclas;
 var pata;
+var certo;
 
 //Variáveis dos emojis de seleção correta
 
@@ -159,6 +160,7 @@ function preload() {
   for (gll = 0; gll < 3; gll++){
     gatoanimadoe[gll] = loadImage("assets/gato/atorl" + gll + ".png");
   }
+  certo = loadImage("assets/correct.png");
   pata = loadImage("assets/pata.png");
   teclas = loadImage("assets/teclas.png")
   casa1 = loadImage("assets/casa1.png");
@@ -569,7 +571,7 @@ function draw() {
     }
     
     if (casas1 == true) {
-      image(emoji, 500, (150-70), 80, 70);
+      image(certo, 500, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -589,16 +591,18 @@ function draw() {
       casas2 = true;
     }
     if (casas2 == true) {
-      image(emoji, 360, 240, 80, 70);
+      image(certo, 360, 240, 80, 70);
     }
     
     
     if (c1 == true && c2 == true){
+    
       
     fill(0, 102, 153);
     rect(250, 340, 120, 50, 80)
     fill(255);
     text("Continuar!",262, 370); 
+      image(emoji, 370, 330, 80, 70);
     }
      image(pata,mouseX, mouseY, 60,60)
     if (casas1 == true && casas2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
@@ -636,7 +640,7 @@ function draw() {
     }
     
     if (escola1 == true) {
-      image(emoji, 270, (150-70), 80, 70);
+      image(certo, 270, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -656,7 +660,7 @@ function draw() {
       escola2 = true;
     }
     if (escola2 == true) {
-      image(emoji, 350, 250, 80, 70);
+      image(certo, 350, 250, 80, 70);
     }
     
     
@@ -666,6 +670,7 @@ function draw() {
     rect(250, 340, 120, 50, 80)
     fill(255);
     text("Continuar!",262, 370); 
+      image(emoji, 370, 330, 80, 70);
       
     }
      
@@ -706,7 +711,7 @@ function draw() {
     }
     
     if (igreja1 == true) {
-      image(emoji, 500, (150-70), 80, 70);
+      image(certo, 500, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -726,7 +731,7 @@ function draw() {
       igreja2 = true;
     }
     if (igreja2 == true) {
-      image(emoji, 200, 250, 80, 70);
+      image(certo, 200, 250, 80, 70);
     }
     
     
@@ -735,7 +740,8 @@ function draw() {
     fill(0, 102, 153);
     rect(250, 340, 120, 50, 80)
     fill(255);
-    text("Continuar!",262, 370);  
+    text("Continuar!",262, 370); 
+      image(emoji, 370, 330, 80, 70);
     }
      image(pata,mouseX, mouseY, 60,60)
     if (i1 == true && i2 == true && (mouseX > 250) && (mouseX < 250+120) && (mouseY > 340) && (mouseY < 340+50) && mouseIsPressed) {
@@ -772,7 +778,7 @@ function draw() {
     }
     
     if (sup1 == true) {
-      image(emoji, 270, (150-70), 80, 70);
+      image(certo, 270, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -792,7 +798,7 @@ function draw() {
       sup2 = true;
     }
     if (sup2 == true) {
-      image(emoji, 500, 240, 80, 70);
+      image(certo, 500, 240, 80, 70);
     }
     
     
@@ -802,6 +808,7 @@ function draw() {
     rect(250, 340, 120, 50, 80)
     fill(255);
     text("Continuar!",262, 370); 
+      image(emoji, 370, 330, 80, 70);
     }
      image(pata,mouseX, mouseY, 60,60)
     if (sup1 == true && sup2 == true && mouseX > 250 && mouseX < 250+120 && mouseY > 340 && mouseY < 340+50 && mouseIsPressed) {
@@ -870,8 +877,8 @@ function draw() {
     text("Clique!", 150, 200);
     
     text("Após isso, uma tela com perguntas irá aparecer.", 10, 280)
-    text("Responda corretamente e o Edward feliz irá aparecer!", 10, 310);
-    image(emoji, 510, 280, 80, 70)
+    text("Responda corretamente e um correto irá aparecer!", 10, 310);
+    image(certo, 510, 280, 80, 70)
     text("Responda tudo corretamente para vencer!", 10, 340);
     text("Clique com o mouse para continuar!", 10, 380);
     image(pata,mouseX, mouseY, 60,60)
