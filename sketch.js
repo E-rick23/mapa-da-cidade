@@ -12,6 +12,8 @@ var alt = 400;
 //variáveis relacionadas ao som
 let music;
 let vitoria;
+let vmusic;
+
 
 
 //variáveis dos objetos
@@ -180,8 +182,9 @@ function preload() {
   gp1 = loadImage("assets/gato/pg1.png");
   gp2 = loadImage("assets/gato/pg2.png");
   soundFormats('mp3', 'ogg');
+  vmusic = loadSound("assets/sound/victorymusic.mp3");
   music = loadSound("assets/sound/musica.mp3");
-  vitoria = loadSound("assets/sound/Victory.mp3")
+  vitoria = loadSound("assets/sound/Victory.mp3");
   
   
 }
@@ -190,6 +193,8 @@ function setup() {
   createCanvas(larg, alt);
   music.loop();
   music.setVolume(0.3);
+  vmusic.loop();
+  vmusic.setVolume(0);
   noCursor();
 }
 
@@ -199,6 +204,37 @@ function draw() {
   if (tela == 1) {
     //Tela inicial 
     frameRate(60)
+  cm = 0;
+  cm1 = 0;
+  //Caso o jogo seja reiniciado, essas variáveis devem ser falsas.
+  
+  s1 = false;
+  s2 = false;
+  s3 = false;
+
+  e1 = false;
+  e2 = false;
+
+  i1 = false;
+  i2 = false;
+    
+  m1 = false;
+  m2 = false;
+ 
+  c1 = false;
+  c2 = false;
+    
+  escola1 = false;
+  escola2 = false;
+
+  igreja1 = false;
+  igreja2 = false;
+
+  casas1 = false;
+  casas2 = false;
+  
+  sup1 = false;
+  sup2 = false;
     background(220);
     textSize(32);
     text("Bem vindo!", 220, 100);
@@ -524,9 +560,14 @@ function draw() {
   } else if (tela == 4) {
     //Tela de vitória
     
-    
-    
+    vmusic.setVolume(1);
     frameRate(1.5);
+    
+    
+    
+    
+    
+    
     background(220);
     textSize(32);
     text("Você ganhou!", 200, 100);
@@ -571,7 +612,7 @@ function draw() {
     }
     
     if (casas1 == true) {
-      image(certo, 500, (150-70), 80, 70);
+    image(certo, 500, (150-70), 80, 70);
     }
     fill(255);
     text("Que objetos podem ser encontrados nesse lugar?", 100, (250-70));
@@ -820,12 +861,14 @@ function draw() {
   } else if (tela == 9) {
   frameRate(1.5)
    background(100);
-    textSize(20);
-    
+    textSize(20)
+   
     fill(0);
     text("Créditos", 250, (100-70));
     text("Programador:", 230, (100-40));
     text("Erick Marques Oliveira Azevedo", 160, 90)
+    textSize(10)
+      text("(Pressione b para voltar)", 460, 390)
     if (win == true){
     if (c === 0){
       image(gp1, 30, 230, (175/1.5), (262/1.5));
@@ -834,7 +877,8 @@ function draw() {
       image (gp2, -20, 170, (350/1.5), (262/1.5));
       c = 0;
     }
-  }
+  }  
+    textSize(20)
     text("Agradecimentos especiais:", 180, 240);
     text("Elli Pedro (Testador)", 210, 270);
     text("Elton Marques (Testador)", 190, 300);
