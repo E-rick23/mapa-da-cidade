@@ -237,7 +237,7 @@ function draw() {
     background(220);
     textStyle(NORMAL)
     textSize(32);
-    textStyle(ITALIC)
+    textStyle(BOLD)
     text("Mapa da Cidade", 180, 100);
     textStyle(NORMAL)
     text("Pressione Enter para iniciar!", 90, 200);
@@ -913,7 +913,7 @@ function draw() {
     image(teclas, 50, 10, 400, 400);
     text("Aperte a seta esquerda, ou D para continuar!", 40, 380)
     image(pata,mouseX, mouseY, 60,60)
-    if (key == "d" || key == RIGHT_ARROW){
+    if (key == "d" || keyIsDown(RIGHT_ARROW)){
       tela = 11
     }
   } else if (tela == 11){
