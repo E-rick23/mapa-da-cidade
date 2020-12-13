@@ -236,6 +236,7 @@ function draw() {
   sup1 = false;
   sup2 = false;
     background(220);
+    textStyle(NORMAL)
     textSize(32);
     text("Bem vindo!", 220, 100);
     text("Pressione Enter para iniciar!", 90, 200);
