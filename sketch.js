@@ -17,6 +17,7 @@ let vmusic;
 
 
 //variáveis dos objetos
+var blur;
 var casa1;
 var casa2;
 var predio;
@@ -162,6 +163,7 @@ function preload() {
   for (gll = 0; gll < 3; gll++){
     gatoanimadoe[gll] = loadImage("assets/gato/atorl" + gll + ".png");
   }
+  blur = loadImage("assets/mapab.png");
   certo = loadImage("assets/correct.png");
   pata = loadImage("assets/pata.png");
   teclas = loadImage("assets/teclas.png")
@@ -235,6 +237,8 @@ function draw() {
   sup1 = false;
   sup2 = false;
     background(220);
+    fill(255);
+    image(blur, 0, 0, 600, 400);
     textStyle(NORMAL)
     textSize(32);
     textStyle(BOLD)
@@ -242,7 +246,7 @@ function draw() {
     textStyle(NORMAL)
     text("Pressione Enter para iniciar!", 90, 200);
     text("Pressione I para instruções!", 90, 270)
-    text("Ou, pressione C para créditos!", 80, 350);
+    text("Ou pressione C para créditos!", 80, 350);
     
     if (key == "Enter") {
       tela = 3;
@@ -258,6 +262,7 @@ function draw() {
   } else if (tela == 2) {
     
     background(220);
+    
     textSize(20);
       
     image(mapa, 0, 0, 600, 400);
@@ -517,7 +522,10 @@ function draw() {
     
   } else if (tela == 3) {
     //Tela de seleção!
+    
     background(220);
+    fill(255)
+    image(blur, 0, 0, 600, 400);
     textSize(20);
     text("Bem vindo!", 240, 100);
     text("Antes de começar, com qual casa a sua se parece?", 80, 150)
@@ -561,16 +569,10 @@ function draw() {
     
   } else if (tela == 4) {
     //Tela de vitória
-    
-    
+    image(blur, 0, 0, 600, 400);
+    fill(255);
     frameRate(1.5);
     
-    
-    
-    
-    
-    
-    background(220);
     textSize(32);
     text("Você ganhou!", 200, 100);
  
@@ -590,6 +592,7 @@ function draw() {
     
   } else if (tela == 5) {
    background(100);
+    image(blur, 0, 0, 600, 400);
     textSize(20);
     
     fill(0);
@@ -659,6 +662,7 @@ function draw() {
     
   } else if (tela == 6) {
     background(100);
+    image(blur, 0, 0, 600, 400);
     textSize(20);
     
     fill(0);
@@ -731,6 +735,7 @@ function draw() {
   } else if (tela == 7) {
     
    background(100);
+    image(blur, 0, 0, 600, 400);
     textSize(20);
     
     fill(0);
@@ -797,6 +802,7 @@ function draw() {
     
   } else if (tela == 8) {
    background(100);
+    image(blur, 0, 0, 600, 400);
     textSize(20);
     
     fill(0);
@@ -865,6 +871,7 @@ function draw() {
   } else if (tela == 9) {
   frameRate(1.5)
    background(100);
+    image(blur, 0, 0, 600, 400);
     textSize(20)
    
     fill(0);
@@ -911,7 +918,7 @@ function draw() {
     image(gato,520,10,60,80)
     text("Para mover o Edward, use as setas do seu teclado!", 40, 80);
     image(teclas, 50, 10, 400, 400);
-    text("Aperte a seta esquerda, ou D para continuar!", 40, 380)
+    text("Aperte a seta direita, ou D para voltar!", 40, 380)
     image(pata,mouseX, mouseY, 60,60)
     if (key == "d" || keyIsDown(RIGHT_ARROW)){
       tela = 11
