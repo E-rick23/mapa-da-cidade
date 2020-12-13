@@ -193,7 +193,6 @@ function setup() {
   createCanvas(larg, alt);
   music.loop();
   music.setVolume(0.3);
-  vmusic.loop();
   vmusic.setVolume(0);
   noCursor();
 }
@@ -561,7 +560,7 @@ function draw() {
   } else if (tela == 4) {
     //Tela de vitória
     
-    vmusic.setVolume(1);
+    
     frameRate(1.5);
     
     
@@ -582,6 +581,8 @@ function draw() {
     }
     text("Pressione Enter para continuar!", 70, 390);
     if (key == "Enter") {
+      vmusic.loop();
+      vmusic.setVolume(1);
       tela = 9;
     }
     
@@ -892,9 +893,13 @@ function draw() {
       textSize(10)
       text("(Pressione v para voltar)", 460, 390)
     }
-    if (key == "v" || key == "V") {
+    if (key == "v" || key == "V" && win == false) {
       tela = 1;
     }
+    if (key == "v" || key == "V" && win == false){
+        vmusic.stop();
+      music.play()
+        }
   } else if (tela == 10){
     background(255,236,192);
     textSize(20);
