@@ -918,7 +918,7 @@ function draw() {
     image(gato,520,10,60,80)
     text("Para mover o Edward, use as setas do seu teclado!", 40, 80);
     image(teclas, 50, 10, 400, 400);
-    text("Aperte a seta direita, ou D para voltar!", 40, 380)
+    text("Aperte a seta direita ou D para continuar!", 40, 380)
     image(pata,mouseX, mouseY, 60,60)
     if (key == "d" || keyIsDown(RIGHT_ARROW)){
       tela = 11
@@ -941,7 +941,7 @@ function draw() {
     text("Responda corretamente e um correto irá aparecer!", 10, 310);
     image(certo, 510, 280, 80, 70)
     text("Responda tudo corretamente para vencer!", 10, 340);
-    text("Clique com o mouse para continuar!", 10, 380);
+    text("Clique com o mouse para voltar!", 10, 380);
     image(pata,mouseX, mouseY, 60,60)
     if (mouseIsPressed) {
       tela = 1;
