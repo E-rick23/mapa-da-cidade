@@ -13,7 +13,7 @@ var alt = 400;
 let music;
 let vitoria;
 let vmusic;
-
+var on = true;
 
 
 //variáveis dos objetos
@@ -189,6 +189,11 @@ function preload() {
   
 }
 
+function somdesligado(){
+   if (on == false){
+      music.stop();
+    }
+}
 function setup() {
   createCanvas(larg, alt);
   music.loop();
@@ -197,9 +202,25 @@ function setup() {
   noCursor();
 }
 
-
+function som(){
+  if (keyIsDown(77)) {
+  if (music.isPlaying()) {
+    // .isPlaying() returns a boolean
+    music.stop();
+    vmusic.setVolume(0);
+    on = false
+  } else {
+    music.play();
+    vmusic.setVolume(0);
+    on = true
+    
+  }
+}
+   
+}
 function draw() {
-  
+  somdesligado()
+  som();
   if (tela == 1) {
     //Tela inicial 
     frameRate(60)
@@ -237,21 +258,23 @@ function draw() {
     background(220);
     textStyle(NORMAL)
     textSize(32);
-    text("Bem vindo!", 220, 100);
+    textStyle(ITALIC)
+    text("Mapa da Cidade", 180, 100);
+    textStyle(NORMAL)
     text("Pressione Enter para iniciar!", 90, 200);
     text("Pressione I para instruções!", 90, 270)
     text("Ou, pressione C para créditos!", 80, 350);
-    
+   
     if (key == "Enter") {
       tela = 3;
     }
      if (key == "c") {
       tela = 9;
     }
-    if (key == "i"){
+    if (key == "i" || key == "I"){
       tela = 10;
     }
-    
+   
     
   } else if (tela == 2) {
     
@@ -506,9 +529,10 @@ function draw() {
     
     if(e1 == true && e2 == true && i1 == true && i2 == true && m1 == true && m2 == true && c1 == true && c2 == true ){
       music.stop();
-    
+    if (on == true){
     vitoria.play();
     vitoria.playMode("restart");
+    }
       tela = 4;
       win = true;
     }
@@ -581,8 +605,10 @@ function draw() {
     }
     text("Pressione Enter para continuar!", 70, 390);
     if (key == "Enter") {
+      if (on == true){
       vmusic.loop();
       vmusic.setVolume(1);
+      }
       tela = 9;
     }
     
@@ -909,6 +935,8 @@ function draw() {
     image(gato,520,10,60,80)
     text("Para mover o Edward, use as setas do seu teclado!", 40, 80);
     image(teclas, 50, 10, 400, 400);
+    text("Para desativar a musica, pressione M a qualquer momento.", 40, 300)
+    text("(Aperte M novamente para ligar a musica!)", 40, 340)
     text("Aperte a seta esquerda, ou D para continuar!", 40, 380)
     image(pata,mouseX, mouseY, 60,60)
     if (key == "d" || key == RIGHT_ARROW){
