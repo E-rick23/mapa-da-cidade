@@ -868,8 +868,10 @@ function draw() {
     text("Programador:", 230, (100-40));
     text("Erick Marques Oliveira Azevedo", 160, 90)
     textSize(10)
-      text("(Pressione v para voltar)", 460, 390)
+    
+      
     if (win == true){
+      text("(Pressione v para voltar)", 460, 390)
     if (c === 0){
       image(gp1, 30, 230, (175/1.5), (262/1.5));
       c++
