@@ -868,7 +868,7 @@ function draw() {
     text("Programador:", 230, (100-40));
     text("Erick Marques Oliveira Azevedo", 160, 90)
     textSize(10)
-      text("(Pressione b para voltar)", 460, 390)
+      text("(Pressione v para voltar)", 460, 390)
     if (win == true){
     if (c === 0){
       image(gp1, 30, 230, (175/1.5), (262/1.5));
@@ -887,9 +887,9 @@ function draw() {
     text("Orivaldo Vieira (Professor)", 190, 390);
     if (win == false) {
       textSize(10)
-      text("(Pressione b para voltar)", 10, 380)
+      text("(Pressione v para voltar)", 10, 380)
     }
-    if (key == "b") {
+    if (key == "v" || key == "V") {
       tela = 1;
     }
   } else if (tela == 10){
