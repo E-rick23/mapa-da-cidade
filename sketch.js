@@ -889,7 +889,7 @@ function draw() {
     text("Orivaldo Vieira (Professor)", 190, 390);
     if (win == false) {
       textSize(10)
-      text("(Pressione v para voltar)", 10, 380)
+      text("(Pressione v para voltar)", 460, 390)
     }
     if (key == "v" || key == "V") {
       tela = 1;
