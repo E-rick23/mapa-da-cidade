@@ -1,4 +1,4 @@
-
+//Programador: Erick Marques Oliveira Azevedo
 
 
 var tela = 1;
@@ -948,3 +948,5 @@ function draw() {
     }
   }
 }
+//Fím do código...
+//... provavelmente.
