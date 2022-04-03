@@ -183,10 +183,12 @@ function preload() {
   emoji = loadImage("assets/gato/emoji.png");
   gp1 = loadImage("assets/gato/pg1.png");
   gp2 = loadImage("assets/gato/pg2.png");
+  tbackground = loadImage("assets/Tbackground.png");
   soundFormats('mp3', 'ogg');
   vmusic = loadSound("assets/sound/victorymusic.mp3");
   music = loadSound("assets/sound/musica.mp3");
   vitoria = loadSound("assets/sound/Victory.mp3");
+  
   
   
 }
@@ -911,6 +913,7 @@ function draw() {
         }
   } else if (tela == 10){
     background(255,236,192);
+    image(tbackground,0,0,0,0);
     textSize(20);
     
     fill(0);
@@ -925,6 +928,7 @@ function draw() {
     }
   } else if (tela == 11){
     background(255,236,192);
+    image(tbackground,0,0,0,0);
     textSize(20);
     
     fill(0);
