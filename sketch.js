@@ -4,7 +4,7 @@
 var tela = 1;
 var win = false; //variável de vitória!
 
-//variáveis do tamanho do canvas
+//Variáveis do tamanho do canvas
 
 var larg = 600;
 var alt = 400;
