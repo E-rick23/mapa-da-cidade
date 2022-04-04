@@ -1,2 +1,6 @@
 # mapa-da-cidade
-Esse é o mapa da nova cidade na para a qual você irá se mudar, há diversos lugares para explorar! O jogador deve identificar esses lugares, assim como dizer quais itens podem ser encontrados nesses lugares.
+Mapa-da-cidade foi um projeto que realizei para a disciplina de Lógica de Programação.
+
+O objetivo do jogo "Mapa da cidade" é melhorar a capacidade de discernir e identificar as áreas do dia a dia, assim como objetos que podem ser encontrados nesses locais, utilizando um mapa com algumas localizações e interações em cada um desses locais.
+
+Link do projeto no Colabeduc: http://www.colabeduc.org/projeto/show/252
